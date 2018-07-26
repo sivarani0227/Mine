@@ -1,0 +1,9 @@
+<table class="table table-stripped">
+  <tr *ngFor='let eachTrip of weekEndTripList'>
+    <td>{{eachTrip.src}}</td>
+    <td>{{eachTrip.destination}}</td>
+    <td>{{eachTrip.fare}}</td>
+  </tr>
+</table>
+
+{{weekEndTripList | json}}

@@ -1,0 +1,42 @@
+<form #frm="ngForm" (ngSubmit)="submit(frm.value)">
+  <div>
+    <label for ="id" >Id</label>
+    <input type="text" name="id" ngModel required>
+  </div>
+  <div>
+    <label for ="name" >Name</label>
+    <input type="text" name="name" ngModel required>
+  </div>
+  <div>
+    <label for ="mobileNumber">mobileNumber</label>
+    <input type="text" ngModel name="mobileNumber">
+  </div>
+  <div>
+    <label for ="location">location</label>
+    <input type="text" name='location' ngModel>
+  </div>
+  <div>
+
+    <input type="submit" value='Add' [disabled]='frm.invalid'>
+  </div>
+</form>
+
+<h2 class="text-center" > Agent Details</h2>
+<div class="form-inline">
+  <label>Search by Name:</label>
+  <input type='text' [(ngModel)]="queryString">
+</div>
+<table class="table table-striped">
+  <tr>
+    <th>Agent</th>
+    <th>Location</th>
+    <th>Mobile</th>
+
+    </tr>
+    <tr *ngFor="let eachAgent of agentList  | filter : 'name': queryString">
+      <td>{{eachAgent.name}}</td>
+      <td>{{eachAgent.location}}</td>
+      <td>{{eachAgent.mobileNumber}}</td>
+      <td><button>ShowReview</button></td>
+     </tr>
+</table>
